@@ -56,7 +56,7 @@ public ArrayList<ArrayList<BookEntity>> selectAll(String keyword){
 				entity.setBisbn(bisbn);
 			
 				entity.setBtitle(rs.getString("btitle"));
-				entity.setBauthor(rs.getString("btitle"));
+				entity.setBauthor(rs.getString("bauthor"));
 				
 				
 				String sql1 = "select * from books_comment where bisbn=?";
