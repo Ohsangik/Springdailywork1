@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dao" class="exam_02_BookSearch_Di.BookDAO" />
+	
+	<bean id="bookService" class="exam_02_BookSearch_Di.BookService">
+		<constructor-arg>
+			<ref bean="dao"/>
+		</constructor-arg>
+	
+		<property name="keyword">
+			<value>java</value>
+		</property>
+		
+		<!-- 
+		<property name="dao">
+			<ref bean="dao"/>
+		</property>
+		 -->			
+	</bean>
+</beans>

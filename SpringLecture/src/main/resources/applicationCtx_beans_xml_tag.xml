@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- bean태그를 통해 객체를 생성 지금 3개만들었슴-->
+	<bean id="book1" class="exam_02_beans_xml_tag.BookEntity"> 
+		<property name="btitle">
+			<value>군림천하</value>
+		</property>		
+		<property name="bauthor" value="동대문"></property>
+	</bean>
+	
+	<bean id="book2" class="exam_02_beans_xml_tag.BookEntity"> 
+		<property name="btitle">
+			<value>파우스트</value>
+		</property>		
+		<property name="bauthor" value="괴테"></property>
+	</bean>
+	
+	<bean id="book3" class="exam_02_beans_xml_tag.BookEntity"> 
+		<property name="btitle">
+			<value>레 미제라블</value>
+		</property>		
+		<property name="bauthor" value="빅토르위고"></property>
+	</bean>
+	
+	<!-- 책장 객체 생성!! -->
+	<bean id="bookshelf" class="exam_02_beans_xml_tag.BookShelf">
+		<property name="shelfName" value="만화책장"/>    <!-- 해당 클래스에서 가지고있는 필드에 대한 데이터를 입력해줌!! 프로퍼티 태그를 통해 -->
+		<property name="shelfPrice" value="100000"/>
+		<property name="list">
+			<list>	<!-- 리스트의 경우 아래와 같은 방법으로 셋팅을 해줘야 함 -->
+				<ref bean="book1"/>
+				<ref bean="book2"/>
+				<ref bean="book3"/>
+			</list>
+		</property>
+		<property name="map"> <!-- map의 경우 아래와 같이 key와 value값을 각각  받아야함!! -->
+			<map>
+				<entry key="1" value-ref="book1"/>
+				<entry key="2" value-ref="book2"/>
+				<entry key="3" value-ref="book3"/>
+			</map>
+		</property>
+	</bean>
+</beans>
