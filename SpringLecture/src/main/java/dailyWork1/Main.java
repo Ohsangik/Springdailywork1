@@ -32,31 +32,22 @@ public class Main {
 		ArrayList<BookEntity> a = list.get(0);
 		ArrayList<BookEntity> b = list.get(1);
 		
-		System.out.println(b.get(0).getBcomment()+"제발");
-		System.out.println(b.get(1).getBcomment()+"제발");
-		System.out.println(b.get(2).getBcomment()+"제발");
-
-		
 		for(int i=0;i<a.size();i++){
-			System.out.println("책 제목 : "+a.get(i).getBtitle());
-			System.out.println("책 저자 : "+a.get(i).getBauthor());
-			
+			System.out.println(a.get(i).getBtitle()+" : "+a.get(i).getBauthor());
+			int count=1;
+		
 			for(int j=0;j<b.size();j++){
+				
 				if(a.get(i).getBisbn().equals(b.get(j).getBisbn())){
-					System.out.println("책 comment : "+b.get(j).getBcomment());
+					
+					System.out.println("===> 서평 "+count+ ": "+b.get(j).getBcomment());
+					
 				}
+				count = count+1;
 			}
 		}
 		
-	/*	
-		for(BookEntity entity :list){
-			System.out.println("책 제목 : " +entity.getBtitle());
-			System.out.println("책 저자 : " +entity.getBauthor());
-			System.out.println("책 comment : " +entity.getBcomment());
-		}
-		
-	
-		*/
+
 		sc.close();
 		ctx.close();
 	}
